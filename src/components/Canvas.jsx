@@ -11,6 +11,7 @@ import Title from './Title';
 import CannonBall from './CannonBall';
 import Heart from './Heart';
 import PlusOne from './PlusOne';
+import OctoKitty from './OctoKitty';
 
 
 const Canvas = (props) => {
@@ -25,6 +26,7 @@ const Canvas = (props) => {
     lives.push(<Heart key={i} position={heartPosition}/>);
   }
   return (
+    <div>
     <svg
       id="aliens-go-home-canvas"
       preserveAspectRatio="xMaxYMax none"
@@ -73,6 +75,8 @@ const Canvas = (props) => {
       {lives}
     />
     </svg>
+      <OctoKitty />
+    </div>
   );
 };
 
