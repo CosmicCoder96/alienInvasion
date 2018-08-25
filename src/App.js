@@ -13,6 +13,7 @@ class App extends Component {
     this.props.shoot(this.canvasMousePosition);
   }
   componentDidMount() {
+    document.title="Alien Invasion";
     const self = this;
     setInterval(() => {
         self.props.moveObjects(self.canvasMousePosition);
