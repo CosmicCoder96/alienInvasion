@@ -8,6 +8,7 @@ import CurrentScore from './CurrentScore'
 import FlyingObject from './FlyingObject';
 import StartGame from './StartGame';
 import Title from './Title';
+import CannonBall from './CannonBall';
 
 const Canvas = (props) => {
   const gameHeight = 1200;
@@ -18,6 +19,7 @@ const Canvas = (props) => {
       preserveAspectRatio="xMaxYMax none"
       onMouseMove={props.trackMouse}
       viewBox={viewBox}
+      onClick={props.shoot}
     >
       <defs>
         <filter id="shadow">
@@ -47,6 +49,12 @@ const Canvas = (props) => {
       ))}
         </g>
       }
+      {props.gameState.cannonBalls.map(cannonBall => (
+        <CannonBall
+          key={cannonBall.id}
+          position={cannonBall.position}
+        />
+      ))}
     </svg>
   );
 };
@@ -67,6 +75,7 @@ Canvas.propTypes = {
   }).isRequired,
   trackMouse: PropTypes.func.isRequired,
   startGame: PropTypes.func.isRequired,
+  shoot: PropTypes.func.isRequired,
 };
 
 export default Canvas;
