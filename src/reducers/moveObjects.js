@@ -27,8 +27,10 @@ function moveObjects(state, action) {
   const flyingDiscsDestroyed = objectsDestroyed.map(object => (object.flyingDiscId));
 
   cannonBalls = cannonBalls.filter(cannonBall => (cannonBallsDestroyed.indexOf(cannonBall.id)));
-  flyingObjects = flyingObjects.filter(flyingDisc => (flyingDiscsDestroyed.indexOf(flyingDisc.id)));
   const lostLife = state.gameState.flyingObjects.length > flyingObjects.length;
+  console.log(lostLife);
+  flyingObjects = flyingObjects.filter(flyingDisc => (flyingDiscsDestroyed.indexOf(flyingDisc.id)));
+  
   let lives = state.gameState.lives;
   if (lostLife) {
     lives--;
