@@ -28,6 +28,20 @@ function moveObjects(state, action) {
 
   cannonBalls = cannonBalls.filter(cannonBall => (cannonBallsDestroyed.indexOf(cannonBall.id)));
   flyingObjects = flyingObjects.filter(flyingDisc => (flyingDiscsDestroyed.indexOf(flyingDisc.id)));
+  const lostLife = state.gameState.flyingObjects.length > flyingObjects.length;
+  let lives = state.gameState.lives;
+  if (lostLife) {
+    lives--;
+  }
+
+  const started = lives > 0;
+  if (!started) {
+    flyingObjects = [];
+    cannonBalls = [];
+    lives = 3;
+  }
+
+  const kills = state.gameState.kills + flyingDiscsDestroyed.length;
 
   return {
     ...newState,
@@ -35,6 +49,9 @@ function moveObjects(state, action) {
       ...newState.gameState,
       flyingObjects,
       cannonBalls,
+      lives,
+      started,
+      kills
     },
     angle,
   };
