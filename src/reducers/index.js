@@ -10,6 +10,7 @@ const initialGameState = {
   flyingObjects: [],
   lastObjectCreatedAt: new Date(),
   cannonBalls: [],
+  plusOnes: []
 };
 
 const initialState = {

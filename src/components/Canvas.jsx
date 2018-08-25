@@ -10,6 +10,8 @@ import StartGame from './StartGame';
 import Title from './Title';
 import CannonBall from './CannonBall';
 import Heart from './Heart';
+import PlusOne from './PlusOne';
+
 
 const Canvas = (props) => {
   const gameHeight = 1200;
@@ -64,7 +66,12 @@ const Canvas = (props) => {
           position={cannonBall.position}
         />
       ))}
+      {props.gameState.plusOnes.map(plusOne => (
+        <PlusOne position={plusOne.position}
+        />
+      ))}
       {lives}
+    />
     </svg>
   );
 };

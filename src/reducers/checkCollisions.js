@@ -1,6 +1,5 @@
 import { checkCollision } from '../utils/formulas';
 import { gameHeight } from '../utils/constants';
-
 const checkCollisions = (cannonBalls, flyingDiscs) => {
   const objectsDestroyed = [];
   flyingDiscs.forEach((flyingDisc) => {
@@ -26,6 +25,10 @@ const checkCollisions = (cannonBalls, flyingDiscs) => {
         objectsDestroyed.push({
           cannonBallId: cannonBall.id,
           flyingDiscId: flyingDisc.id,
+          position:{
+            x: (cannonBall.position.x + flyingDisc.position.x)/2,
+            y: (cannonBall.position.y + flyingDisc.position.y)/2
+          }
         });
       }
     });

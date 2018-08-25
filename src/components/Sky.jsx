@@ -7,6 +7,7 @@ const Sky = () => {
   };
   const gameHeight = 1200;
   return (
+    
     <rect
       style={skyStyle}
       x={skyAndGroundWidth / -2}
@@ -14,6 +15,8 @@ const Sky = () => {
       width={skyAndGroundWidth}
       height={gameHeight}
     />
+    
+    
   );
 };
 
